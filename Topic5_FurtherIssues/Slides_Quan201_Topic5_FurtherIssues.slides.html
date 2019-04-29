@@ -12850,7 +12850,7 @@ $$ \frac{\Delta \widehat{wage}}{\Delta exper} = \hat{\beta}_1-2\hat{\beta}_2 exp
 The <em>estimated</em> effect of going from 0 to 1 year of experience is equal to approximately $\$18.84$.  
 The *estimated* effect of going from 20 to 21 years of experience is equal to approximately $-\$12.76$.<br>
 The <em>estimated</em> effect of experience is $\$0$ at $\frac{18.84}{1.58}=11.73$ years.</p>
-<center><img src='Material/Topic5_Fig7.png' width='600' height='80'/></center><p>The maximum/minimum is at the point $|\frac{\beta_1}{2\beta_2}|$</p>
+<center><img src='Material/Topic5_Fig7.png' width='550' height='70'/></center><p>The maximum/minimum is at the point $|\frac{\beta_1}{2\beta_2}|$</p>
 
 </div>
 </div>
@@ -13041,7 +13041,7 @@ $$ ln(y)=\beta_0 + \beta_1 x + u $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Marginal-Effect">Marginal Effect<a class="anchor-link" href="#Marginal-Effect">&#182;</a></h3><ul>
 <li><strong>DGP</strong> $y=e^{\beta_0+\beta_1+u}$</li>
-<li>If $\beta_1=1$, if $x$ increases by 1, $y$ increases by a factor of $e^{\beta_1*1}=e^1=2.781$.</li>
+<li>If $\beta_1=1$, if $x$ increases by 1, $y$ increases by a factor of $e^{\beta_1*1}=e^1=2.718$.</li>
 <li>If $\beta_1=0.08$, if $x$ increases by 1, $y$ increases by a factor of $e^{\beta_1*1}=e^{0.08}=1.083$ (approx. 8%).</li>
 <li><em>Rule of thumb for the above DGP</em>: for small changes, $\beta_j$ is a good approximation of the percentage changes in $y$.</li>
 </ul>
@@ -13070,7 +13070,8 @@ $$ y= e^{\beta_0 + \beta_1 x + u} $$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's estimate the following model: $wage=\beta_0 + \beta_1 educ + u$</p>
-<center><img src='Material/Topic5_Fig15.png' width='600' height='80'/></center><p>A one-year increase in education increases <em>predicted</em> hourly wage by $\$0.54$.</p>
+<center><img src='Material/Topic5_Fig15.png' width='600' height='80'/></center><p>A one-year increase in education increases <em>predicted</em> hourly wage by $\$0.54$.<br>
+[Note: deliberately estimating what we suspect is a 'wrong/misspecified' model.]</p>
 
 </div>
 </div>
@@ -13080,7 +13081,7 @@ $$ y= e^{\beta_0 + \beta_1 x + u} $$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's estimate the following model: $log(wage)=\beta_0 + \beta_1 educ + u$</p>
-<center><img src='Material/Topic5_Fig15.png' width='600' height='80'/></center><p>A one-year increase in education increases <em>predicted</em> hourly wage by approximately $8.3\%$.</p>
+<center><img src='Material/Topic5_Fig15b.png' width='600' height='80'/></center><p>A one-year increase in education increases <em>predicted</em> hourly wage by approximately $8.3\%$.</p>
 <p>Comparing the R-squared of the two regressions we can see that the log(wage) model 
 fits the data better.</p>
 
@@ -13117,7 +13118,7 @@ fits the data better.</p>
 <h3 id="Calculating-the-exact-percentage-difference-from-a-log-difference">Calculating the exact percentage difference from a log difference<a class="anchor-link" href="#Calculating-the-exact-percentage-difference-from-a-log-difference">&#182;</a></h3><ul>
 <li>General Estimated model: $ log(y)= \beta_0 + \beta_1 x_1 + \beta_2 x_2 + u $</li>
 <li>You can calculate the exact percentage change in $y$ in response to change $\Delta x_j$ using the formula:
-$$ 100*(e^{\beta_j \Delta x_j}-1 $$</li>
+$$ 100*(e^{\beta_j \Delta x_j}-1) $$</li>
 <li>Note: the exact percentage effect of increasing and decreasing $x_j$ are not the same.</li>
 </ul>
 
@@ -13129,7 +13130,7 @@ $$ 100*(e^{\beta_j \Delta x_j}-1 $$</li>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Recall the following regression: $log(wage)=\beta_0 + \beta_1 educ + u$</p>
-<center><img src='Material/Topic5_Fig15.png' width='600' height='80'/></center><ul>
+<center><img src='Material/Topic5_Fig15b.png' width='600' height='80'/></center><ul>
 <li>A <em>one-year increase</em> in education increases <em>predicted</em> hourly wage by $100*(e^{0.083*1}-1)=8.7$. So, 8.7%.</li>
 <li>A <em>one-year decrease</em> in education increases <em>predicted</em> hourly wage by $100*(e^{0.083*(-1)}-1)=-8$. So, -8%.</li>
 <li>A <em>ten-year increase</em> in education increases <em>predicted</em> hourly wage by $100*(e^{0.083*10}-1)=129$. So, 129%.</li>
