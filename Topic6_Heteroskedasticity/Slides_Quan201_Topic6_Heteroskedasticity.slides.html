@@ -12778,10 +12778,10 @@ $$ Var(u|x_1,x_2,...,x_k)=\sigma^2 $$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Evidence for   Evidence for</p>
-<h3 id="Homoskedasticity--###-Heteroskedasticity">Homoskedasticity  ### Heteroskedasticity<a class="anchor-link" href="#Homoskedasticity--###-Heteroskedasticity">&#182;</a></h3><center><img src='Material/Topic6_Fig3a.png' width='300' height='40'/></center>
-<center><img src='Material/Topic6_Fig3b.png' width='300' height='40'/></center>
-<center><img src='Material/Topic6_Fig3b.png' width='300' height='40'/></center>
+<h3 id="Homoskedasticity">Homoskedasticity<a class="anchor-link" href="#Homoskedasticity">&#182;</a></h3><p><center><img src='Material/Topic6_Fig3a.png' width='300' height='40'/></center></p>
+<h3 id="Heteroskedasticity">Heteroskedasticity<a class="anchor-link" href="#Heteroskedasticity">&#182;</a></h3><p><center><img src='Material/Topic6_Fig3b.png' width='300' height='40'/></center>
+<!--- <center><img src='Material/Topic6_Fig3c.png' width='300' height='40'/></center> --></p>
+
 </div>
 </div>
 </div></section></section><section><section>
@@ -12798,7 +12798,7 @@ $$wage=\beta_0+\delta_0 female +u$$</p>
 <li><p>Is this realistic? Discuss.</p>
 </li>
 <li><p>Let's look at the summary statistics,</p>
-<center><img src='Material/Topic6_Fig4.png' width='300' height='40'/></center></li>
+<center><img src='Material/Topic6_Fig4.png' width='800' height='100'/></center></li>
 </ul>
 
 </div>
@@ -12853,7 +12853,7 @@ $$ H_0: \delta_1 = \delta_2 = ...=\delta_k=0$$</li>
 <li>This means that the independent variables are not (linearly) related to the variance of error term $u$.</li>
 <li>The main issue is that it is impossible to know the error terms $u$.</li>
 <li>How can we obtain estimates for the error term to test this hypothesis? We use the OLS residuals $\hat{u}^2$ as estimates of the error term. The equation then becomes
-$$ \hat{u}^2 = =\delta_0 + \delta_1 x_1 + \delta_2 x_2 +...+\delta_k x_k + \upsilon $$</li>
+$$ \hat{u}^2 = \delta_0 + \delta_1 x_1 + \delta_2 x_2 +...+\delta_k x_k + \upsilon $$</li>
 <li>We can estimate this equation and test $H_0$ with an F-test. If the F-test rejects $H_0$ we have evidence for heteroskedasticity.</li>
 </ul>
 
@@ -12894,7 +12894,7 @@ $$ \hat{u}^2 = =\delta_0 + \delta_1 x_1 + \delta_2 x_2 +...+\delta_k x_k + \upsi
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Heteroskedasticity-robust-estimator-of-$Var(\beta_j)$">Heteroskedasticity robust estimator of $Var(\beta_j)$<a class="anchor-link" href="#Heteroskedasticity-robust-estimator-of-$Var(\beta_j)$">&#182;</a></h4><p>$$ \widehat{Var(\beta_j)} = \frac{\sum_{i=1}^n \hat{r}_{ij}^2 \hat{u}_ij^2 }{SSR_j^2} $$
+<h4 id="Heteroskedasticity-robust-estimator-of-$Var(\beta_j)$">Heteroskedasticity robust estimator of $Var(\beta_j)$<a class="anchor-link" href="#Heteroskedasticity-robust-estimator-of-$Var(\beta_j)$">&#182;</a></h4><p>$$ \widehat{Var(\beta_j)} = \frac{\sum_{i=1}^n \hat{r}_{ij}^2 \hat{u}_{ij}^2 }{SSR_j^2} $$
 where,</p>
 <ul>
 <li>$\hat{r}_{ij}$ is the residual for person $i$ from a regression of $x_j$ on all the other independent variables.</li>
@@ -12924,6 +12924,17 @@ where,</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <center><img src='Material/Topic6_Fig6.png' width='300' height='80'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Is this heteroskedasticity? Or homoskedasticy?</p>
+<p><center><img src='Material/Topic6_Fig3c.png' width='300' height='40'/></center>
+Could Breusch-Pagan test answer this?</p>
+
 </div>
 </div>
 </div></section></section><section><section>
