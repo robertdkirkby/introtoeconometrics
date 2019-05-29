@@ -13051,7 +13051,7 @@ $$ y = \beta_0 + \beta_1 x + \beta_2 c + u $$</p>
 <li>$c$: exogenous control variable.</li>
 </ul>
 <p>We suspect that $x$ and $u$ are correlated ($x$ is endogenous).
-$$ Cov(x,u) \neq 0$</p>
+$$ Cov(x,u) \neq 0$$</p>
 <p>We have to make the same <strong>two assumptions</strong>,</p>
 <ul>
 <li>(15.5) $z$ is correlated with $x$: $Cov(z,x) \neq 0$.</li>
@@ -13066,7 +13066,7 @@ $$ Cov(x,u) \neq 0$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="2SLS-IV-estimation,-first-stage">2SLS IV estimation, first stage<a class="anchor-link" href="#2SLS-IV-estimation,-first-stage">&#182;</a></h2><p>First stage:
-$$ x = \beta_{0,first} + \beta_{FS} x + \beta_{c,first} c + \upsilon $$</p>
+$$ x = \beta_{0,first} + \beta_{FS} z + \beta_{c,first} c + \upsilon $$</p>
 <ul>
 <li>Relevance assumption says that $Cov(z,x) \neq 0$. We can test this assumption by testing if $\beta_{FS}$ is significantly different from 0.</li>
 </ul>
@@ -13113,7 +13113,8 @@ $$ \hat{\beta}_{2SLS} = \frac{\text{Reduced Form}}{\text{First Stage}} = \frac{\
 </li>
 <li><p>Compared to OLS the IV estimator is less efficient (i.e., it has a larger variance, larger standard errors)</p>
 </li>
-<li><p>A stronger first stage leads to more efficient IV estimates.</p>
+<li><p>A stronger first stage leads to more efficient IV estimates.<br>
+(a <em>strong</em> instrument has high Cov(z,x))</p>
 </li>
 </ul>
 
@@ -13162,7 +13163,7 @@ $$ \hat{\beta}_{2SLS} = \frac{\hat{\beta}_{RF}}{\hat{\beta}_{FS}} = \frac{0.156}
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>2SLS IV estimation is very easily implemented using Stata:</p>
+<p>IV estimation is very easily implemented using Stata:</p>
 <center><img src='Material/Topic9_Fig12.png' width='600' height='120'/></center><ul>
 <li><p>Our IV estimate suggests that a one year increase in education leads to approx 19% increase in wage.</p>
 </li>
@@ -13187,6 +13188,19 @@ $$ \hat{\beta}_{2SLS} = \frac{\hat{\beta}_{RF}}{\hat{\beta}_{FS}} = \frac{0.156}
 </li>
 <li><p>No problem if we can control for these factors.</p>
 </li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2SLS-is-easily-implemented-in-Stata">2SLS is easily implemented in Stata<a class="anchor-link" href="#2SLS-is-easily-implemented-in-Stata">&#182;</a></h3><ul>
+<li><em>ivregress 2sls</em></li>
+<li>You need to tell it what are $x$ and $z$.</li>
+<li>Stata automatically estimates the correct standard errors.</li>
 </ul>
 
 </div>
@@ -13239,7 +13253,7 @@ Monotonicity assumption: instrument influences the endogenous variable only in o
 <li><p>The effect estimated with IV is a Local Average Treatment Effect (LATE).</p>
 </li>
 <li><p><strong>Local</strong> = only for those who are moved by the instrument<br>
-<strong>Local Average Treatment Effect</strong> = average treatment effect for those who were moved by the instrument (complieres + defiers).</p>
+<strong>Local Average Treatment Effect</strong> = average treatment effect for those who were moved by the instrument (compliers + defiers).</p>
 </li>
 <li><p>In the KIPP example, this means that IV estimates the average effect of going to KIPP on test scores for kids whose decision to go to KIPP was influenced by the lottery.</p>
 </li>
