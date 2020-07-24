@@ -12892,7 +12892,7 @@ $$ testscore=100 -0.5*class size + 5*ability -5*lazy$$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Let's-decompose-$y_i$">Let's decompose $y_i$<a class="anchor-link" href="#Let's-decompose-$y_i$">&#182;</a></h3><p>Actual Observation: $y_i=\hat{\beta_0}+\hat{\beta_1} x_i + \hat{u_i}$</p>
-<p>Predicted value/fitted value: $y_i=\hat{\beta_0}+\hat{\beta_1} x_i$</p>
+<p>Predicted value/fitted value: $\hat{y}_i=\hat{\beta_0}+\hat{\beta_1} x_i$</p>
 <p>Residual: $\hat{u_i}=y_i-\hat{y_i}$</p>
 <p>(Residual=Difference between actual and predicted value)</p>
 
@@ -13113,7 +13113,7 @@ $$S^2 = \frac{\sum^n_{i=1} (x_i-\bar{x})^2}{n-1}$$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Intuitive-explanation-of-OLS-estimator">Intuitive explanation of OLS estimator<a class="anchor-link" href="#Intuitive-explanation-of-OLS-estimator">&#182;</a></h3><p>Let’s imagine three cases in the <strong>sample</strong>:</p>
+<h2 id="Intuitive-explanation-of-OLS-estimator">Intuitive explanation of OLS estimator<a class="anchor-link" href="#Intuitive-explanation-of-OLS-estimator">&#182;</a></h2><p>Let’s imagine three cases in the <strong>sample</strong>:</p>
 <ol>
 <li>u is equal to zero for all observations.</li>
 <li>u is <em>on average equal</em> to zero for all values of x. </li>
@@ -13127,7 +13127,658 @@ $$S^2 = \frac{\sum^n_{i=1} (x_i-\bar{x})^2}{n-1}$$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Case-1:-u-=-0-for-all-students">Case 1: u = 0 for all students<a class="anchor-link" href="#Case-1:-u-=-0-for-all-students">&#182;</a></h3><p>DGP: $ testscore=100 -0.5*class size + 5*ability -5*lazy$</p>
+<ul>
+<li>We only observe testscore and classize. </li>
+<li>We do not observe ability and lazy (the only two variables in the error term).</li>
+<li>We want to estimate the effect of classsize ($\beta_1=-0.5$) on testscore and the constant ($\beta_0=100$).</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Case-1:-u-=-0-for-all-students-(continuted)">Case 1: u = 0 for all students (continuted)<a class="anchor-link" href="#Case-1:-u-=-0-for-all-students-(continuted)">&#182;</a></h3><p>DGP: $ testscore=100 -0.5*class size + 5*ability -5*lazy$</p>
+<center><img src='Material/Topic2_Fig11.png' width='700' height='120'/></center><p>The sample regression function is $100 -0.5*class size$ (same as DGP)</p>
+<p>All observations are on the line.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Case-2:-u-is-on-average-equal-for-all-values-of-x">Case 2: u is on average equal for all values of x<a class="anchor-link" href="#Case-2:-u-is-on-average-equal-for-all-values-of-x">&#182;</a></h3><p>DGP: $ testscore=100 -0.5*class size + 5*ability -5*lazy$</p>
+<center><img src='Material/Topic2_Fig12.png' width='700' height='120'/></center><p>The sample regression function is equal to $100 -0.5*class size$ (but not all observations are on the line)</p>
+<p>Intuition:  If $u$ is on average 0 for all levels of $class size$, then $100 -0.5*class size$ minimizes the sum of squared residuals.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Case-3:-u-is-on-average-not-equal-to-zero-for-all-values-of-x">Case 3: u is on average not equal to zero for all values of x<a class="anchor-link" href="#Case-3:-u-is-on-average-not-equal-to-zero-for-all-values-of-x">&#182;</a></h3><p>DGP: $ testscore=100 -0.5*class size + 5*ability -5*lazy$</p>
+<center><img src='Material/Topic2_Fig13.png' width='700' height='120'/></center><p>The sample regression function is <strong>not</strong> equal to $100 -0.5*class size$</p>
+<p>Intuition:  If u is on not average 0,  $100 -0.5*class size$ then does not minimize the sum of squared residuals.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Ceteris-Paribus?">Ceteris Paribus?<a class="anchor-link" href="#Ceteris-Paribus?">&#182;</a></h3><p>Notice how, at the intuitive level we talked about $u$ as everything else. When 'everything else' is zero on average (in the population), then we can estimate the regression 'well'. Loosely speaking, this is analagous to what we discussed with the difference in group means, that when 'everything else' averages to zero we can accurately estimate what we are wanting to. (Accuracy coming with big samples)</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="From-sample-to-population">From sample to population<a class="anchor-link" href="#From-sample-to-population">&#182;</a></h3><ul>
+<li>If $u$ is on average equal to zero for all values of $x$ in the <strong>sample</strong>, the OLS sample regression function will be exactly the DGP. But this is (effectively) never going to be the case in any specific sample. </li>
+<li>However, $u$ could be on average equal to 0 for all values of $x$ in the <strong>population</strong>. </li>
+<li>If this is true the OLS estimator is correct on average (if we would take many samples, and estimate many regressions).</li>
+<li>We call <em>an estimator that is correct on average</em> <strong>unbiased</strong>. </li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="OLS-assumption">OLS assumption<a class="anchor-link" href="#OLS-assumption">&#182;</a></h2><p>Critical OLS assumption:</p>
+<h3 id="$$-E[u|x]=E[u]-$$">$$ E[u|x]=E[u] $$<a class="anchor-link" href="#$$-E[u|x]=E[u]-$$">&#182;</a></h3><ul>
+<li>The left-hand side is a <strong>conditional expectation</strong>.</li>
+<li>The right-hand side is an <strong>unconditional expectation</strong> (just the expected value of u, regardless of x).</li>
+</ul>
+<p>Interpretation: The average value of $u$ in the population is the same for all values of $X$. This is the equivalent of the ceteris paribus condition for OLS.</p>
+<ul>
+<li>If this assumption holds, OLS gives us a ”good” estimate of the causal effect.</li>
+</ul>
+<p>Note: Wooldgridge talks about assumptions we have to make in order to get reliable estimates of $\beta_1$... You can think of this as conditions/circumstances that need to be true.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Conditional-Expectation">Conditional Expectation<a class="anchor-link" href="#Conditional-Expectation">&#182;</a></h2><p>Example:</p>
+<ul>
+<li>X is education and Y is hourly wage.</li>
+<li>$E(Y|X=12)$ is the average hourly wage for all people in the population with 12 years of education.</li>
+<li>$E(Y|X=16)$ the average hourly wage for all people in the population with 16 years of education</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Illustration">Illustration<a class="anchor-link" href="#Illustration">&#182;</a></h2><center><img src='Material/Topic2_Fig14.png' width='600' height='120'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Illustration-follow-up-question">Illustration follow up question<a class="anchor-link" href="#Illustration-follow-up-question">&#182;</a></h2><p>How would you draw a figure of $E[u|x]$? (Similar to the previous one.)</p>
+<p>How would the figure look if  $E[u|x]=E[u]$?</p>
+<p>Think about: What axes, and what would the values (the heights of the lines) be?</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-Less-Controversial-Assumption">A Less Controversial Assumption<a class="anchor-link" href="#A-Less-Controversial-Assumption">&#182;</a></h2><p>As long as the intercept $\beta_0$ is included in the equation, we can always assume that the average value of $u$ in the population is zero:
+$$E[u]=0$$
+If in truth $E[u]\neq 0$ we get ”bad” estimates of $\beta_0$, but we are rarely interested in estimating $\beta_0$. So we will assume $E[u]=0$.</p>
+<p>We combine $E[u|x]=E[u]$ and $E[u]=0$ to get the <strong>zero conditional mean assumption</strong>:
+$$ E[u|x]=0$$</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="From-assumptions-to-estimators">From assumptions to estimators<a class="anchor-link" href="#From-assumptions-to-estimators">&#182;</a></h2><p>Assumption: $E[u|x]=E[u]$</p>
+<p>Assumption: $E[u]=0$</p>
+<p>Both assumptions together imply zero covariance between x and u. We can now re-write the above assumptions as</p>
+<center><img src='Material/Topic2_Fig15.png' width='600' height='120'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note: $u=y-\beta_0-\beta_1 x$</p>
+<p>Re-write the above assumptions again:</p>
+<center><img src='Material/Topic2_Fig16.png' width='600' height='120'/></center><ul>
+<li><p>We have two unknown parameters. Can’t we just solve for these?</p>
+</li>
+<li><p>Not quite, because we don’t know the expected values of $y$ and $x$ <strong>in the population</strong>.</p>
+</li>
+<li><p><strong>It’s precisely for this reason that the best we can hope to do is <em>estimate</em> the parameters.</strong></p>
+</li>
+</ul>
+<p>(We will never be able to know the true population values of the parameters, only to estimate them.)</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This applies for the population:</p>
+<center><img src='Material/Topic2_Fig16.png' width='600' height='120'/></center>
+The ingredients are unobserved. 
+
+We can solve the **sample counterparts** of ($2.12$) & ($2.13$):
+<center><img src='Material/Topic2_Fig17.png' width='600' height='120'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><center><img src='Material/Topic2_Fig18.png' width='600' height='120'/></center>
+These are the OLS estimates of the parameters of the simple regression model.</p>
+<p>$\hat{\beta}_0$ and $\hat{\beta}_1$ miminize the sum of squared residuals.</p>
+<p>We can rewrite ($2.19$) as follows: $\hat{\beta}_1=\frac{Cov(x,y)}{Var(x)}$</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-just-happened?">What just happened?<a class="anchor-link" href="#What-just-happened?">&#182;</a></h2><p>We got the same estimators for $\hat{\beta}_0$ and $\hat{\beta}_1$ as before.</p>
+<p>The first time we got them it was from the OLS regression, they are the OLS regression estimators.</p>
+<p>The second time we got them it was the assumptions $E[u|x]=E[u]$ and $E[u]=0$, they are the estimators that satisfy these assumptions. And as a result they provide 'good' estimates for the population parameters.</p>
+<p>It is 'coincidence' that they are the same. We now have two ways to understand our estimators; viewed another way we now understand some properties of our OLS regression estimator. Specifically, we know the OLS regression estimators are good when certain assumptions hold.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Cleaning-up-loose-ends.">Cleaning up loose ends.<a class="anchor-link" href="#Cleaning-up-loose-ends.">&#182;</a></h4><p>Note: We require $\sum_{i=1}^n (x_i-\bar{x})^2&gt;0$</p>
+<ul>
+<li>If this does not hold, then $\hat{\beta}_1$ is not defined.</li>
+<li>Why, what does this imply in practice?</li>
+</ul>
+<center><img src='Material/Topic2_Fig19.png' width='600' height='120'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exogeneity-vs.-Endogeneity">Exogeneity vs. Endogeneity<a class="anchor-link" href="#Exogeneity-vs.-Endogeneity">&#182;</a></h2><p>A variable is <strong>exogenous</strong> if: 
+$$ E[u|x]= E[x]$$</p>
+<p>A variable is <strong>endogenous</strong> if:
+$$ E[u|x]\neq E[x]$$</p>
+<p>Economist are often “worried that X is endogenous”. They are worried because endogeneity means that a critical assumption is violated and the OLS estimates cannot be interpreted causally.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-happens-in-an-experiment?">What happens in an experiment?<a class="anchor-link" href="#What-happens-in-an-experiment?">&#182;</a></h2><p>Imagine that students are randomly assigned to classes of different sizes. In this case, the expected value of $u$ is the same in for all class sizes. ($E[u|x]=E[u]$.) If the sample is large enough, because of the LLN, the actual value of $u$ will be very similar across class sizes.</p>
+<p>Is the expected value of $u$ equal to zero ($E[u|x]=0$)? Unlikely.</p>
+<p>Together this implies that OLS gives us an unbiased estimate of $\beta_{cs}$, which gives us the causal effect of a change in class size.</p>
+<p>However, OLS does not correctly estimate $\beta_0$, but we usually don’t care about that.</p>
+<p>To see this, imagine what happens if $u$ is equal to 50 on average for all class sizes. The regression line will shift up by 50, but the slope of the regression line ($\beta_{cs}$) will stay the same.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>In any dataset, the OLS estimates give us the regression line that best fits the data (i.e., best fits in sense that it minimizes the sum of squared residuals).</p>
+<p>There is some process – the DGP – that generates the data we observe in the world.</p>
+<p>Before looking at the data, we think how this process would look like and describe it by writing down an econometric model.</p>
+<p>We typically want to estimate the $\beta_1$ parameter of the econometric model to know how a change in one factor affects the outcome.</p>
+<p>To do this, we look at data.</p>
+<p>Only when the unobserved factors are independent of $x$ (i.e., $E[u|x] = E[u]$), OLS gives “good” estimates of $\beta_1$.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Terminology/Nomenclature-(names)">Terminology/Nomenclature (names)<a class="anchor-link" href="#Terminology/Nomenclature-(names)">&#182;</a></h2><center><img src='Material/Topic2_Fig20.png' width='400' height='120'/></center><p>$u$: error term, disturbance term, noise.</p>
+<p>$\beta_0$, $\beta_0$: coefficients, parameters.</p>
+<p>$\hat{y}_i$: fitted/predicted value.</p>
+<p>$\hat{u}_i$: residual.</p>
+<p>$\hat{\beta}_0$, $\hat{\beta}_1$: estimators</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center><img src='Material/Topic2_Fig21.png' width='600' height='140'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center><img src='Material/Topic2_Fig22.png' width='500' height='120'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Competition-(Experiment)">The Competition (Experiment)<a class="anchor-link" href="#The-Competition-(Experiment)">&#182;</a></h2><ul>
+<li>Experiment on Amazon Mechanical Turk (online labour market used by many scientists to run experiments)</li>
+<li>Random sample of 10 participants</li>
+<li>Randomly assign people 1 to 10 “I love numbers” courses </li>
+<li>After this, participants take a math test, which gives scores from 1 to 5, 5 = best score.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Results-of-Experiment">Results of Experiment<a class="anchor-link" href="#Results-of-Experiment">&#182;</a></h2><center><img src='Material/Topic2_Fig23.png' width='500' height='120'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Evi-redoes-the-Experiment,-results:">Evi redoes the Experiment, results:<a class="anchor-link" href="#Evi-redoes-the-Experiment,-results:">&#182;</a></h2><center><img src='Material/Topic2_Fig24.png' width='500' height='120'/></center><p>Hmm. Which one was correct??</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="After-doing-experiment-18-times...">After doing experiment 18 times...<a class="anchor-link" href="#After-doing-experiment-18-times...">&#182;</a></h2><center><img src='Material/Topic2_Fig25.png' width='500' height='120'/></center><p>Hmm. The mystery deepens. Better do some more experiments...</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Distribution-of-$\hat{\beta}_1$">Distribution of $\hat{\beta}_1$<a class="anchor-link" href="#Distribution-of-$\hat{\beta}_1$">&#182;</a></h2><center><img src='Material/Topic2_Fig26.png' width='600' height='160'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Disclaimer">Disclaimer<a class="anchor-link" href="#Disclaimer">&#182;</a></h2><p>Timo did not actually run these experiments.</p>
+<p>I hope this story helped you to understand this very important point: $\hat{\beta}_1$ has a distribution and we only observe one realization of this distribution per sample!</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Distribution-of-$\hat{\beta}_1$">Distribution of $\hat{\beta}_1$<a class="anchor-link" href="#Distribution-of-$\hat{\beta}_1$">&#182;</a></h2><p>We assume that the parameters described in the econometric model are fixed, i.e., there is only one true $\beta_1$.</p>
+<p>However, because we estimate our results with a (random) sample of the population, our OLS estimates will be different in each sample.</p>
+<p>The OLS estimator $\hat{\beta}_1$ has a distribution.</p>
+<center><img src='Material/Topic2_Fig27.png' width='100' height='30'/></center><p>We usually only have one sample and hope that our estimate is close to the true $\beta_1$.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Unbiasedness-of-$\hat{\beta}$">Unbiasedness of $\hat{\beta}$<a class="anchor-link" href="#Unbiasedness-of-$\hat{\beta}$">&#182;</a></h2><p>How should we evaluate whether an estimator is good?</p>
+<p>-If $\hat{\beta}$ is equal to $\beta$? That is unlikely to happen. Not a suitable criterion.</p>
+<h4 id="$\hat{\beta}$-is-unbiased-if-$E[\hat{\beta}]-=-\beta$">$\hat{\beta}$ is <em>unbiased</em> if $E[\hat{\beta}] = \beta$<a class="anchor-link" href="#$\hat{\beta}$-is-unbiased-if-$E[\hat{\beta}]-=-\beta$">&#182;</a></h4><p><center><img src='Material/Topic2_Fig28.png' width='250' height='50'/></center>
+(Notice: added a vertical red line to represent $\beta$, notice the estimates 'average' is around this line.)</p>
+<p>Interpretation: $\hat{\beta}$ is unbiased if the estimator is on average (in infinitely many samples) equal to the true beta.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Simple-Linear-Regression-(SLR)-Assumptions">Simple Linear Regression (SLR) Assumptions<a class="anchor-link" href="#Simple-Linear-Regression-(SLR)-Assumptions">&#182;</a></h2><p>SLR Assumptions 1-4 = conditions under which $\beta_1=\frac{Cov(x,y)}{Var(x)}$ is unbiased.</p>
+<p><strong>SLR 1</strong>: <em>Linear in parameters.</em></p>
+<p>(We can transform x and y, e.g., by using logs. We will talk about this later.)</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Simple-Linear-Regression-(SLR)-Assumptions-(cont.)">Simple Linear Regression (SLR) Assumptions (cont.)<a class="anchor-link" href="#Simple-Linear-Regression-(SLR)-Assumptions-(cont.)">&#182;</a></h3><p><strong>SLR 2</strong>: <em>Random Sampling.</em></p>
+<p>Our observations are taken at random from the population of interest.
+Random sampling ensures that the sample has, in expectations, the same characteristics as the population.</p>
+<p><strong>SLR 3</strong>: <em>Variation in the Explanatory Variable.</em></p>
+<p>Not all x have the same value.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Simple-Linear-Regression-(SLR)-Assumptions-(cont.)">Simple Linear Regression (SLR) Assumptions (cont.)<a class="anchor-link" href="#Simple-Linear-Regression-(SLR)-Assumptions-(cont.)">&#182;</a></h3><p><strong>SLR 4</strong>: <em>Zero Conditional Mean</em>
+$$E[u|x] = 0$$</p>
+<p>In practice, this is the most critical assumption.</p>
+<p>$E[u|x] = 0 \implies E[u|x] = E[u]$ and $ $E[u]=0$.</p>
+<p>Note: $E[u|x] = E[u]$ is sufficient for unbiasedness of $\hat{\beta}_1$, while $E[u]=0$ gives us that $\hat{\beta}_0$ is also unbiased.</p>
+<p>$E(u|x) = E(u)$ is most plausible in a randomized experiment.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-can-unbiasedness-fail?">How can unbiasedness fail?<a class="anchor-link" href="#How-can-unbiasedness-fail?">&#182;</a></h2><ul>
+<li>Unbiasedness fails if any of the SLRs fail (linearity, random sampling, variation in x, zero conditional mean).</li>
+<li>In practice, the SLR.4 is the most important one.</li>
+<li>The possibility that $x$ is correlated with $u$ is very often a concern in simple regression analysis.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Variance-of-OLS-estimator">Variance of OLS estimator<a class="anchor-link" href="#Variance-of-OLS-estimator">&#182;</a></h2><p>We know now that under SLR 1-4, the OLS estimator is unbiased.</p>
+<p>We also want to know how far away $\hat{\beta}$ is from $\beta$?</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Variance-of-OLS-estimator-(cont.)">Variance of OLS estimator (cont.)<a class="anchor-link" href="#Variance-of-OLS-estimator-(cont.)">&#182;</a></h3><p>Consider the following distributions of $\hat{\beta}$</p>
+<center><img src='Material/Topic2_Fig29.png' width='600' height='160'/></center><p>We prefer an estimator with a smaller variance.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Variance-of-OLS-estimator-(cont.)">Variance of OLS estimator (cont.)<a class="anchor-link" href="#Variance-of-OLS-estimator-(cont.)">&#182;</a></h3><p>We need an additional assumption to estimate the variance of $\hat{\beta}$ 
+(And we need the variance to make inference about $\beta$, see topic 4).</p>
+<p><strong>SLR 5</strong>: $Homoskedasticity$</p>
+<p>The error term $u$ has the same variance given any value of $x$. Formally: $Var(u|x) = \sigma^2$</p>
+<p>If the variance of $u$ depends on $x$, the error term is said to exhibit <strong>heteroskedasticity</strong>.</p>
+<p>Note: $\sigma^2$, the <strong>Population Variance</strong> of $u$ equals $\frac{\sum^{N}_{i=1} (u_i-\mu_u)^2}{N}$ (note also that if our earlier assumptions hold then $\mu_u=0$)</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Homoskedasticity">Homoskedasticity<a class="anchor-link" href="#Homoskedasticity">&#182;</a></h2><center><img src='Material/Topic2_Fig30.png' width='600' height='160'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Heteroskedasticity">Heteroskedasticity<a class="anchor-link" href="#Heteroskedasticity">&#182;</a></h2><center><img src='Material/Topic2_Fig31.png' width='600' height='160'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Sampling-variance-of-the-OLS-estimator">Sampling variance of the OLS estimator<a class="anchor-link" href="#Sampling-variance-of-the-OLS-estimator">&#182;</a></h2><p>Under assumptions SLR.1 through SLR.5,
+$$ Var(\hat{\beta}_1) = \frac{\sigma^2}{\sum^n_{i=1}(x_i-\bar{x})^2}$$</p>
+<p>(We refer to the denominator $\sum^n_{i=1}(x_i-\bar{x})^2$ as $SST_x$, the 'sum of squares total of x')</p>
+<p>You can see that $Var(\hat{\beta}_1)$ decreases when,</p>
+<ul>
+<li>error variance, $\sigma^2$, is low.</li>
+<li>we have a large sample.</li>
+<li>there is a high variability of $x$.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Estimator-of-variance-of-$\hat{\beta}$">Estimator of variance of $\hat{\beta}$<a class="anchor-link" href="#Estimator-of-variance-of-$\hat{\beta}$">&#182;</a></h2><p>Estimator for $\sigma^2$: $\hat{\sigma}^2=\frac{SSR}{n-2}$</p>
+<p>Estimator for $Var(\hat{\beta}_1)$:<br>
+$$\hat{Var}(\hat{\beta}_1)=\frac{\hat{\sigma}^2}{\sum^n_{i=1}(x_i-\bar{x})^2}$$</p>
+<p>Even though we only have one sample and one realisation of $\hat{\beta}_1$, we can get an estimate of variance of the distribution of $\hat{\beta}_1$!</p>
+<p>Can rewrite: $\hat{Var}(\hat{\beta}_1)=\frac{SSR}{(n-2)*SST_x}$, $SSR$ is called 'sum of squares residual' and is $SSR=\sum_{i=1}^n \hat{u}<em>i^2=\sum</em>{i=1}^n (y_i-\hat{y}_i)^2.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Preview-Inference">Preview Inference<a class="anchor-link" href="#Preview-Inference">&#182;</a></h2><p>When can we conclude that $\hat{\beta}_1 \neq 0$?</p>
+<center><img src='Material/Topic2_Fig32.png' width='600' height='160'/></center><p>If $\hat{\beta}_1$ is large in absolute terms (far away from zero) and variance of $\hat{\beta}_1$ is small. (We will talk more about this in topic 4)</p>
+<p>[E.g., in left figure it seems that the true $\beta_1$ might be -2, but in the right figure this seems unlikely.]</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-is-the-difference-between-these-two-graphs?">What is the difference between these two graphs?<a class="anchor-link" href="#What-is-the-difference-between-these-two-graphs?">&#182;</a></h2><center><img src='Material/Topic2_Fig33.png' width='600' height='160'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-is-the-difference?">What is the difference?<a class="anchor-link" href="#What-is-the-difference?">&#182;</a></h2><center><img src='Material/Topic2_Fig34.png' width='600' height='160'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Goodness-of-Fit">Goodness of Fit<a class="anchor-link" href="#Goodness-of-Fit">&#182;</a></h2><p>It is often interesting to know how well the regression line fits the data.</p>
+<p>What would be a starting point for a Goodness of Fit measure?</p>
+<p>Better Fit = observation closer to regression line $\to$ smaller residuals.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Towards-a-goodness-of-fit-measure">Towards a goodness of fit measure<a class="anchor-link" href="#Towards-a-goodness-of-fit-measure">&#182;</a></h2><p>For each observation $i$, write
+$$ y_i=\hat{y}_i + \hat{u}_i $$</p>
+<p>We can view OLS as <strong>decomposing</strong> $y_i$ into two parts:</p>
+<ul>
+<li>A fitted value</li>
+<li>And a residual</li>
+</ul>
+<p>where the fitted values and residuals are uncorrelated in the sample.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="SST,-SSE-and-SSR">SST, SSE and SSR<a class="anchor-link" href="#SST,-SSE-and-SSR">&#182;</a></h2><p>$SST$ = <strong>Total</strong> Sum of Squares</p>
+<p>This is simply the total sample variation in $y_i$:</p>
+<p>$$ SST= \sum^n_{i=1} (y_i-\bar{y})^2 $$</p>
+<p>Divide $SST$ by $n-1$ $\to$ estimator of variance of $y_i$.</p>
+<p>(a.k.a sum of squares total)</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="SST,-SSE-and-SSR">SST, SSE and SSR<a class="anchor-link" href="#SST,-SSE-and-SSR">&#182;</a></h2><p>$SSE$ = <strong>Explained</strong> Sum of Squares</p>
+<p>This is the sample variation in fitted/predicted values $\hat{y}_i$:</p>
+<p>$$ SSE= \sum^n_{i=1} (\hat{y}_i-\bar{y})^2 $$</p>
+<p>$SSR$ = <strong>Residual</strong> Sum of Squares</p>
+<p>This is the sample variation in the OLS residual $\hat{u}_i$:</p>
+<p>$$ SSR= \sum^n_{i=1} \hat{u}_i^2 = \sum^n_{i=1} (y_i-\hat{y}_i)^2 $$</p>
+<p>We can show that
+$$ SST=SSE + SSR $$</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="SST,-SSE,-SSR-in-the-Stata-regression-output">SST, SSE, SSR in the Stata regression output<a class="anchor-link" href="#SST,-SSE,-SSR-in-the-Stata-regression-output">&#182;</a></h3><center><img src='Material/Topic2_Fig35.png' width='600' height='160'/></center><p>These quantities can be used to calculate a measure of the <strong>goodness-of-fit</strong> of our model.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="SST,-SSE,-SSR-in-the-Stata-regression-output">SST, SSE, SSR in the Stata regression output<a class="anchor-link" href="#SST,-SSE,-SSR-in-the-Stata-regression-output">&#182;</a></h3><center><img src='Material/Topic2_Fig36.png' width='600' height='160'/></center><center><img src='Material/Topic2_Fig37.png' width='200' height='80'/></center><p>This is the $R^2$ ('R-squared') of the regression. (Sometimes called the coefficient of determination.)</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-to-interpret-the-$R^2$?">How to interpret the $R^2$?<a class="anchor-link" href="#How-to-interpret-the-$R^2$?">&#182;</a></h2><p>$$ R^2 = \frac{SSE}{SST} = 1- \frac{SSR}{SST}$$</p>
+<p>Answer: The fraction of the sample variation in $y$ that is explained by the model (here $x$).</p>
+<p>$R^2$ is always between 0 and 1.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Additional-points-on-$R^2$">Additional points on $R^2$<a class="anchor-link" href="#Additional-points-on-$R^2$">&#182;</a></h2><ul>
+<li><p>Low R-squareds in regressions are not uncommon. In particular, if we are working with noisy cross-sectional micro data, we often get a low $R^2$.</p>
+</li>
+<li><p>In time series econometrics, we often get high $R^2$. Even simple models like $y(t) = a + b*y(t-1) + u$ tend to give high $R^2$.</p>
+</li>
+<li><p>For pure forecasting models, having a good fit (high $R^2$) is of course very central/important.</p>
+</li>
+<li>But maximising the $R^2$ is <strong>not</strong> a goal in most empirical studies. (The focus is often instead about causation.)</li>
+<li>”<em>Students who are first learning econometrics tend to put too much weight on the size of the R-squared in evaluating regression equations</em>” (Wooldridge, p.41).</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Question-for-Class">Question for Class<a class="anchor-link" href="#Question-for-Class">&#182;</a></h2><center><img src='Material/Topic2_Fig38.png' width='600' height='160'/></center><p>What is the $R^2$ of the regression in Figure B?</p>
+<ul>
+<li>A) 0.72       </li>
+<li>B) 0.12</li>
+<li>C) -.12</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Review/Other">Review/Other<a class="anchor-link" href="#Review/Other">&#182;</a></h2>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Review:-Distribution-of-$\hat{\beta}$">Review: Distribution of $\hat{\beta}$<a class="anchor-link" href="#Review:-Distribution-of-$\hat{\beta}$">&#182;</a></h3><p>The OLS estimator $\hat{\beta}$ has a distribution.</p>
+<center><img src='Material/Topic2_Fig27.png' width='100' height='30'/></center><p>The estimator is unbiased if it is correct on average (across infinitely many samples).</p>
+
 </div>
 </div>
 </div></section></section>
