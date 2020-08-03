@@ -12930,12 +12930,13 @@ $$ \Delta \hat{y} = \hat{\beta}_1 \Delta x_1 $$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Partialling-out-interpretation-of-$\hat{\beta}_j$">Partialling out interpretation of $\hat{\beta}_j$<a class="anchor-link" href="#Partialling-out-interpretation-of-$\hat{\beta}_j$">&#182;</a></h2><p>$$\hat{\beta}_j=\frac{Cov(y,\tilde{x}_j)}{Var(\tilde{x}_j)}$$
-Where $\tilde{x}_j$ are the residuals of a regression of on all the covariates ($x_1$, $x_2$,...,$x_k$)</p>
+Where $\tilde{x}_j$ are the residuals of a regression of $x_j$ on all the covariates ($x_1$,...$x_{j-1}$,$x_{j+1}$,...,$x_k$)</p>
 <ul>
 <li>$\hat{\beta}_j$ measures the sample relationship between $y$ and $x_j$ after all the other covariates have been partialled out. </li>
 </ul>
 <p>(Also use wording '<em>after controlling for</em>')</p>
-<p>[Note: At first glance the above formula looks different to the textbook but it is the same equation.]</p>
+<p>[Note: At first glance the above formula looks different to the textbook but it is the same equation.]<br>
+[Intuition: $\tilde{x}_j$ is the part of $x_j$ which cannot be accounted for by the other covariates; hence it is the residuals of regression of $x_j$ on the other covariates.]</p>
 
 </div>
 </div>
