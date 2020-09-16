@@ -12731,7 +12731,7 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Dummy-Variables">Dummy Variables<a class="anchor-link" href="#Dummy-Variables">&#182;</a></h2><ul>
-<li>Incorporation qualitative information.</li>
+<li>Incorporate qualitative information.</li>
 <li>Different effects for different groups.</li>
 </ul>
 <p>Reference: Wooldridge, Chapter 7</p>
@@ -12982,6 +12982,8 @@ E.g., $raceresult$ which takes values of 1 for first, 2 for second, 3 for third,
 <li><p>We then again include all of them except one (the base group) in the regression.</p>
 </li>
 <li><p>The coefficient on the dummy variable can then be interpreted as effect compared to the base group.</p>
+</li>
+<li><p>What <strong>not</strong> to do: What goes wrong if we create a variable $maritalstatus$ which takes values of 0 for $single$, 1 for $married$, 2 for $divorced$ and 3 for $widowed$ and simply put that in our regression? (Hint: Why would you expect the effect of $divorced$ to be double the effect of $married$? Why would you expect difference between effect of $widowed$ and $divorced$ to be the same as the difference between $married$ and $single$?)</p>
 </li>
 </ul>
 
