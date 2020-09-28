@@ -12721,8 +12721,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="QUAN201---Introduction-to-Econometrics"><center>QUAN201 - Introduction to Econometrics</center><a class="anchor-link" href="#QUAN201---Introduction-to-Econometrics">&#182;</a></h2><h3 id="Topic-8:-Pooled,-Cross-Section-and-Panel-Data"><center>Topic 8: Pooled, Cross Section and Panel Data</center><a class="anchor-link" href="#Topic-8:-Pooled,-Cross-Section-and-Panel-Data">&#182;</a></h3><p>datetoday = Dates.datetime.today().strftime("%m/%d/%Y")</p>
-<h3 id="datetoday"><center>datetoday</center><a class="anchor-link" href="#datetoday">&#182;</a></h3>
+<h2 id="QUAN201---Introduction-to-Econometrics"><center>QUAN201 - Introduction to Econometrics</center><a class="anchor-link" href="#QUAN201---Introduction-to-Econometrics">&#182;</a></h2><h3 id="Topic-8:-Pooled,-Cross-Section-and-Panel-Data"><center>Topic 8: Pooled, Cross Section and Panel Data</center><a class="anchor-link" href="#Topic-8:-Pooled,-Cross-Section-and-Panel-Data">&#182;</a></h3>
 </div>
 </div>
 </div></section></section><section><section>
@@ -12767,6 +12766,58 @@ a.anchor-link {
 <li>Observed at few points in time.</li>
 </ul>
 </li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Cross-Section">Cross Section<a class="anchor-link" href="#Cross-Section">&#182;</a></h3><ul>
+<li>Everything we have seen so far is about cross-section.</li>
+<li>Lots of observations (large n)</li>
+<li>Observations (indexed by i) were assumed to be <em>i.i.d</em>: <em>independent and identically distributed</em></li>
+</ul>
+<h3 id="Repeated-Cross-Section">Repeated Cross Section<a class="anchor-link" href="#Repeated-Cross-Section">&#182;</a></h3><ul>
+<li>Multiple cross-sections.</li>
+<li>Loosely: observe groups of individuals at different time periods, but not the same individuals each time.</li>
+<li>(Still have the <em>i.i.d</em> assumption)</li>
+<li>We cannot follow an individual over time (cannot follow an individual from one cross section to another).</li>
+<li>But we can, e.g., look at how averages change over time.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Time-Series">Time Series<a class="anchor-link" href="#Time-Series">&#182;</a></h3><ul>
+<li>Example: GDP observed every year.</li>
+<li>Small n (just one in above example), lots of time periods (indexed by t, large T).</li>
+<li>We expect GDP this year to be related to GDP last year.</li>
+<li>So we do not assume <em>i.i.d</em>.</li>
+<li>We might want to estimate things like: $y_t=\beta_0 + \beta_1 y_{t-1} + u$</li>
+<li>You can do this, but need to learn some new estimators/Econometrics. You cannot just use the exact same things we see in this course. You get the wrong answers if you do. </li>
+<li>We will not cover time series in this course. Be aware that you can do this, but that you need to go learn some new estimators to use for it. (They are not more difficult, just different.)</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Panel-Data">Panel Data<a class="anchor-link" href="#Panel-Data">&#182;</a></h3><ul>
+<li>Same individuals, observed in multiple time periods.</li>
+<li>Lots of individuals (large n, indexed by i), but only need a few time periods (small T, indexed by t).</li>
+<li>Important difference from repeated cross-section: <strong>same</strong> individuals in each time period.</li>
+<li>Now, we can look at how individuals change over time.</li>
+<li>With <em>repeated cross-section</em> we could only look at how averages change over time, not individuals.</li>
 </ul>
 
 </div>
